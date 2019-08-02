@@ -6,13 +6,13 @@ do
    I=$(shuf -i 1-4 -n 1)
    D=`date -Iseconds`
    case "$I" in
-      "1") echo "$D GET /index.html HTTP/1.0 200 2326"
+      "1") echo "$D PUT /card/checkout HTTP/1.0 200 2326"
       ;;
-      "2") echo "$D GET /shop.html HTTP/1.0 200 6842"
+      "2") echo "$D POST /card/add?product=car HTTP/1.0 200 6842"
       ;;
-      "3") echo "$D POST /checkout HTTP/1.0 200 50"
+      "2") echo "$D POST /card/add?product=bike HTTP/1.0 200 6842"
       ;;
-      "4") echo "$D GET /products/car.html HTTP/1.0 404 2326"
+      "4") echo "$D GET /card/remove?product=bike HTTP/1.0 200 2326"
       ;;
    esac
 done
